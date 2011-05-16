@@ -1,0 +1,83 @@
+Author: Navneet Dalal (navneet.dalal@inrialpes.fr)
+
+=== IMPORTANT NOTE ============================================================
+I have limited capabilites for supporting the code. Hence the code below is 
+provided as it is without any support. 
+
+If you find some bugs, you may report to me and I will fix them. Even better, 
+send the files you have fixed and I will upload them directly. 
+
+=== WINDOWS SUPPORT ==========================================================
+I have received lots of emails regarding providing the binaries/source for
+windows. Due to time-constraints, I will not be able to provide windows
+source/binaries. However if are really interested, it is not hard to compile 
+it for windows.
+
+All you need to do is 
+1. Change image IO part in lear/image/imageio.h such that instead of using 
+imlib2, it uses your image io libraries.
+2. Fix painting classes lear/image/painter.h and lear/image/pimage.h such 
+that it uses your painting routines.
+
+If you have created MS Visual C++ workspace, please send those files to 
+me so that I can include them in the package.
+
+=== SVM LEARN FILES ==========================================================
+This code does not build svm_learn binary. For that download
+
+http://pascal.inrialpes.fr/soft/olt/svmdense.tar.gz
+and build a svm_learn binary. A pre-built binary is already provided in 
+the binary package.
+
+=== GENERAL INFORMATION =======================================================
+
+This code implements a multiscale detector for visual object
+recognition and notably for human detection. It requires three external
+libraries:
+
+-- Imlib2       for reading/writing images
+-- Blitz        for efficient array processing
+-- Boost        for many other general c++ utilities not present in ISO C++
+
+Some portions of the code (notably the color conversion routines)
+contain sources adapted from the Vigra Image Processing library
+(http://kogs-www.informatik.uni-hamburg.de/~koethe/vigra/). Vigra is
+templated image processing library distributed under the MIT X11
+license. Where ever Vigra code has been used, this is mentioned in the
+corresponding header file. A license file is included in the
+distribution.
+
+=== INSTALLATION ==============================================================
+
+First install the development versions (*-devel RPM's or similar) of
+the three external libraries as follows, making sure that the headers
+and libraries are in your standard search paths :
+
+Imlib2  - version 1.2.2 tested
+Boost   - version 1.33.1 or later
+Blitz   - version 0.9 tested (installed from source as no RPM's are
+          currently available)
+
+Then unpack the learcode.tar.gz file, change to it top level directory
+and run ./configure. If the libraries were installed in nonstandard
+places you can tell configure where to find them using, e.g.
+
+  ./configure --with-blitz=/usr/local --with-boost=/usr/local ...
+
+=== LICENSE ===================================================================
+
+This software is distributed under the "CeCILL-B FREE SOFTWARE LICENSE
+AGREEMENT" detailed in the LICENSE file, and subject to the additional
+requirement (Article 14) regarding acknowledgements.  The following 
+scientific publications contain the original descriptions of the 
+method implemented in this Software:
+
+[1] Histograms of Oriented Gradients for Human Detection. Navneet
+Dalal and Bill Triggs.  IEEE Conference on Computer Vision & Pattern
+Recognition (CVPR), vol. II, pages 886-893, June 2005.
+<http://lear.inrialpes.fr/pubs/2005/DT05>
+
+[3] Finding people in images and videos. Navneet Dalal. PhD thesis,
+Institut National Polytechnique de Grenoble, July 2006.
+<http://lear.inrialpes.fr/pubs/2006/Dal06>
+
