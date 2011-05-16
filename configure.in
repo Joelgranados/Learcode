@@ -2,15 +2,12 @@ dnl Author: Navneet Dalal <navneet.dalal@inrialpes.fr>
 dnl Most of the code of this file is based on blitz configure.in code
 
 
-AC_PREREQ(2.53)
-AC_INIT(
-        [INRIA computer vision, image classification, object detection library],
-        [0.1],
-        [Navneet Dalal (mailto:navneet.dalal@inrialpes.fr)],
-        [Lear at inrialpes ])
-AM_CONFIG_HEADER(config.h)
+AC_PREREQ([2.66])
+AC_INIT([INRIA computer vision, image classification, object detection library],[0.1],[Navneet Dalal mailto:navneet.dalal@inrialpes.fr],[Lear at inrialpes ])
+AC_CONFIG_HEADERS([config.h])
 AC_CANONICAL_TARGET
 AM_INIT_AUTOMAKE
+AC_CONFIG_MACRO_DIR([m4])
 
 dnl Avoid generating makefile rules to rebuild maintainer-only files by
 dnl default.  Maintainers may override this default and generate these
@@ -30,10 +27,10 @@ AC_PROG_CXX([g++ icc ]) #icpc xlc++ xlC cxx aCC CC pgCC
 AC_CXX_FLAGS_PRESET
 
 dnl  shared library building
-AM_DISABLE_SHARED
+AC_DISABLE_SHARED([])
 
 dnl Libtool stuff check
-AC_PROG_LIBTOOL
+LT_INIT
 
 dnl check for math library
 dnl AC_CHECK_LIB([m, pow, AC_MSG_NOTICE(found libm), AC_MSG_ERROR(libm is required)])
