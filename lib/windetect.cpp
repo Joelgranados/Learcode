@@ -555,7 +555,7 @@ void WinDetectDump::writeWinDesc(
 
     
     typedef boost::variate_generator<boost::mt19937&, boost::uniform_int<> > RandEng; 
-    boost::mt19937 rng(randomSeed ? static_cast<unsigned long> (std::time(0)) : 0 );
+    boost::mt19937 rng(randomSeed ? static_cast<unsigned long> (time(0)) : 0 );
     
 
     IndexType topleft(topleft_x, topleft_y);
