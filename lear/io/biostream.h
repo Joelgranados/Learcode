@@ -12,7 +12,7 @@
 
 // {{{ headers
 #include <fstream>
-#include <string>
+#include <string.h>
 
 #include <lear/io/bistreamable.h>
 // }}}
@@ -99,7 +99,7 @@ class BiOStream{
          * it will be hard to read
          */
 	BiOStream& operator<<(const char buffer[]){
-            to.write(buffer, std::strlen(buffer)+1);
+            to.write(buffer, strlen(buffer)+1);
             return *this;
 	}
         
