@@ -78,6 +78,6 @@ string& lear::warptext(string& str, const unsigned width) {// {{{
 }// }}}
 
 double lear::getRunningTime() {// computes runtime in ms
-   clock_t start = std::clock();       // for timing purposes
+   clock_t start = clock();       // for timing purposes
    return(start*1000/(double)CLOCKS_PER_SEC);
 }
