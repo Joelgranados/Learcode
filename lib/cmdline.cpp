@@ -100,8 +100,8 @@ lear::Cmdline::status lear::Cmdline::parse(int argc, char** argv){
                 ai != argument.args.end(); ++ai) 
         {
             if (vm.count(*ai)< 1) {
-                throw validation_error(string("missing required argument ") 
-                        + argument.desc.find(*ai, false).format_name());
+                throw validation_error(validation_error::multiple_values_not_allowed, string("missing required argument ") 
+                        + argument.desc.find(*ai, false).format_name(), "");
             }
         }
     } catch (validation_error& e) {

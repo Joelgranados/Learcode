@@ -54,7 +54,7 @@ class TypedOption : public po::typed_value<EleT,CharT> {
                     std::ostringstream ost;
                     ost << "value " << *value 
                         << " less than min value " << min;
-                    throw po::validation_error(ost.str());
+                    throw po::validation_error(po::validation_error::multiple_values_not_allowed, ost.str(), ost.str());
                 }
             }
 
@@ -67,7 +67,7 @@ class TypedOption : public po::typed_value<EleT,CharT> {
                     std::ostringstream ost;
                     ost << "value " << *value 
                         << " greater than max value " << max;
-                    throw po::validation_error(ost.str());
+                    throw po::validation_error(po::validation_error::multiple_values_not_allowed, ost.str(), ost.str());
                 }
             }
         }// }}}
@@ -206,7 +206,7 @@ class TypedOption< VectorOpt<EleT>, CharT > :
                     std::ostringstream ost;
                     ost << "VectorOpt<value> " << value
                         << " less than min value " << min;
-                    throw po::validation_error(ost.str());
+                    throw po::validation_error(po::validation_error::multiple_values_not_allowed, ost.str(), "");
                 }
             }
 
@@ -220,7 +220,7 @@ class TypedOption< VectorOpt<EleT>, CharT > :
                     std::ostringstream ost;
                     ost << "VectorOpt<value> " << value 
                         << " greater than max value " << max;
-                    throw po::validation_error(ost.str());
+                    throw po::validation_error(po::validation_error::multiple_values_not_allowed, ost.str(), "");
                 }
             }
         }// }}}
