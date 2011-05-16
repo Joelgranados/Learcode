@@ -2,3 +2,4 @@
 
 SUBDIRS = m4 lear lib app 
 EXTRA_DIST = autogen.sh
+ACLOCAL_AMFLAGS = -I m4
