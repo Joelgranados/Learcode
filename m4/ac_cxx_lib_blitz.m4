@@ -11,7 +11,7 @@ dnl   Blitz library should be under DIR/lib
 dnl   Then try to compile and run a simple program with a Blitz Array
 dnl   Optional argument `required' triggers an error if Blitz++ not installed
 dnl 
-dnl @version $Id: ac_cxx_lib_blitz.m4,v 1.1 2006/06/16 17:39:02 ndalal Exp $
+dnl @version $Id: ac_cxx_lib_cv_blitz.m4,v 1.1 2006/06/16 17:39:02 ndalal Exp $
 dnl @author Patrick Guio <patrick.guio@matnat.uio.no>
 dnl
 AC_DEFUN([AC_MSG_ERROR_BLITZ],[
@@ -54,7 +54,7 @@ AC_DEFUN([AC_CXX_LIB_BLITZ],[
 
     saveLDFLAGS=$LDFLAGS
 
-    AC_CACHE_CHECK([whether Blitz++ is installed],ac_cxx_lib_blitz,
+    AC_CACHE_CHECK([whether Blitz++ is installed],ac_cxx_lib_cv_blitz,
         [AC_LANG_SAVE
         AC_LANG_CPLUSPLUS
 	AC_RUN_IFELSE(
@@ -64,8 +64,8 @@ AC_DEFUN([AC_CXX_LIB_BLITZ],[
 blitz::Array<int,1> x(10);
 x = blitz::tensor::i;
 	]])],
-        [ac_cxx_lib_blitz=yes],
-        [ac_cxx_lib_blitz=no])
+        [ac_cxx_lib_cv_blitz=yes],
+        [ac_cxx_lib_cv_blitz=no])
 	AC_LANG_RESTORE
     ])
 
@@ -73,7 +73,7 @@ x = blitz::tensor::i;
     LDFLAGS="$OLD_LDFLAGS"
     LIBS=$"$OLD_LIBS"
 
-    if test "$ac_cxx_lib_blitz" = no ; then
+    if test "$ac_cxx_lib_cv_blitz" = no ; then
         BLITZ_LDFLAGS=""
         BLITZ_CPPFLAGS=""
         BLITZ_LIBS=""
