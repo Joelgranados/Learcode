@@ -39,7 +39,8 @@ namespace lear {
         PathVector& inlist, const std::string file, const std::string ext="")
     {
         namespace fs=boost::filesystem;
-        if (fs::is_directory(fs::path(file,fs::native))) {
+        if (fs::is_directory(fs::path(file))) {
+        //if (fs::is_directory(fs::path(file,fs::native))) {
             return lear::dirlist(inlist, file, ext);
         } else {
             std::string format = lear::imagefmt(file);

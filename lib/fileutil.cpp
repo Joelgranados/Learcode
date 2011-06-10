@@ -101,7 +101,8 @@ bool lear::verifydir(const string outfile, const bool isdir)
 {
     // check if outimage is valid
     namespace fs=boost::filesystem;
-    fs::path outdir(outfile,fs::native);
+    fs::path outdir(outfile);
+    //fs::path outdir(outfile,fs::native);
     if (!isdir) 
         return ((fs::exists(outdir) && fs::is_directory(outdir))? false:true);
     return ((fs::exists(outdir) && fs::is_directory(outdir)) 

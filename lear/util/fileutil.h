@@ -108,7 +108,8 @@ int dirlist(
     namespace fs=boost::filesystem;
 
     bool absPath = indir.empty();
-    fs::path inpath(indir,fs::native);
+    fs::path inpath(indir);
+    //fs::path inpath(indir,fs::native);
     std::string listfile;
 
     // fill filelist with all the files in this directory
@@ -139,7 +140,8 @@ int dirlist(
         }
         char filename[1024*16];
         while (from.getline(filename,1024*16,'\n')) {
-            fs::path file (filename,fs::native);
+            fs::path file (filename);
+            //fs::path file (filename,fs::native);
             if (!hasExt || (hasExt && fs::extension(file) == ext)) {
                 fs::path t = absPath ? file : inpath/file;
                 if (fs::exists(t)){
