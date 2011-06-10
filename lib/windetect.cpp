@@ -662,7 +662,7 @@ void WinDetectDump::writeWinDesc(
 
                 jitwin.generatepointlist(image.extent(), tl);
                 /* {Joel's hack */
-                WinDescriptor::FeatType *temp;
+                WinDescriptor::FeatType temp;
                 string s1(outfile+".txt");
                 fstream filestr (s1.data() , fstream::out );
                 /* }Joel's hack */
@@ -671,11 +671,11 @@ void WinDetectDump::writeWinDesc(
                 {
 
                     /* {Joel's hack */
-                    temp = &(windesc->compute(*ji));
+                    temp = (windesc->compute(*ji));
                     ++count;
-                    to << *temp;
-                    for ( int i = 0 ; i < (*temp).size() ; i++ )
-                      filestr << (*temp)(i) << std::endl;
+                    to << temp;
+                    for ( int i = 0 ; i < (temp).size() ; i++ )
+                      filestr << (temp)(i) << std::endl;
                     /* }Joel's hack */
 
                     if (dumpfulldetail) {
