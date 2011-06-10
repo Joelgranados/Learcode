@@ -24,7 +24,7 @@ struct BoostPath2PathType {
 template<>
 struct BoostPath2PathType<std::string> {
     std::string operator() (const boost::filesystem::path& p) const {
-        return p.native_file_string();
+        return p.string();
     }
 };
 
